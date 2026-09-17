@@ -1,5 +1,7 @@
 <script setup lang="ts"></script>
 
-<template>megaempty</template>
+<template>
+  <div>123</div>
+</template>
 
 <style scoped lang=""></style>

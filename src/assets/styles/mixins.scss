@@ -1,0 +1,13 @@
+@use "sass:math";
+
+// scss-миксины
+
+/// Генерирует классы размера типографики
+@mixin generate-font-size($sizes, $unit: rem, $divider: 10) {
+  @each $size in $sizes {
+    $value: math.div($size, $divider);
+    .t-#{$size} {
+      font-size: #{$value}#{$unit};
+    }
+  }
+}
