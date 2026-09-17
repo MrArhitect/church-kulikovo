@@ -1,0 +1,19 @@
+// Подключение шрифтов к веб-сайту
+
+// Tektur - Var
+@font-face {
+  font-family: "Tektur";
+  src: url("/src/assets/fonts/Tektur/Tektur-VariableFont_wdth\,wght.ttf");
+  font-weight: 100 900;
+  font-style: normal;
+  font-display: swap;
+}
+
+// Rubik - Var
+@font-face {
+  font-family: "Rubik";
+  src: url("/src/assets/fonts/Rubik/Rubik-VariableFont_wght.ttf");
+  font-weight: 100 900;
+  font-style: normal;
+  font-display: swap;
+}

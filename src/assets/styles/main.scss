@@ -1,0 +1,11 @@
+@use "scss-reset";
+@use "fonts";
+@use "variables" as *;
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  font-size: 10px;
+}
