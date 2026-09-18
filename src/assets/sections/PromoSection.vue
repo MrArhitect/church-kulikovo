@@ -5,6 +5,11 @@ import ButtonUI from "../ui-kit/ButtonUI.vue";
 import LinkUI from "../ui-kit/LinkUI.vue";
 import BurgerIcon from "../icons/BurgerIcon.vue";
 
+// -- Функционал плавного перехода к блоку через JS- --
+const scrollTo = (id: string) => {
+  document.getElementById(id)?.scrollIntoView({ behavior: "smooth" });
+};
+
 // -- Функционал эффекта парралакса на фоне --
 const bgRef = ref<HTMLElement | null>(null);
 
@@ -12,7 +17,7 @@ const bgRef = ref<HTMLElement | null>(null);
 const MAX_SHIFT = 20;
 
 // Коэффициент сглаживания, меньше = плавнее
-const EASE = 0.025;
+const EASE = 0.05;
 
 let targetX = 0;
 let targetY = 0;
@@ -98,13 +103,13 @@ onUnmounted(() => {
               <div class="left">
                 <nav class="nav">
                   <ul class="nav__inner t-14 flex">
-                    <a href="#" class="nav__link">
+                    <a href="/" class="nav__link">
                       <li class="nav__item">Главная</li>
                     </a>
-                    <a href="#" class="nav__link">
+                    <a href="#history_section" class="nav__link">
                       <li class="nav__item">История храма</li>
                     </a>
-                    <a href="#" class="nav__link">
+                    <a href="#repair_section" class="nav__link">
                       <li class="nav__item">Капитальный ремонт</li>
                     </a>
                     <a href="#" class="nav__link">
@@ -136,7 +141,9 @@ onUnmounted(() => {
                   >Публичная оферта</LinkUI
                 >
               </div>
-              <ButtonUI>Узнать подробнее</ButtonUI>
+              <ButtonUI @click="scrollTo('history_section')"
+                >Узнать подробнее</ButtonUI
+              >
               <LinkUI class="mobile_show" :href="'#'" :type="'light'"
                 >Публичная оферта</LinkUI
               >
@@ -155,11 +162,11 @@ onUnmounted(() => {
       aria-modal="true"
     >
       <nav class="mobile_menu__nav">
-        <a href="#" class="mobile_menu__link" @click="closeMenu">Главная</a>
-        <a href="#" class="mobile_menu__link" @click="closeMenu"
+        <a href="/" class="mobile_menu__link" @click="closeMenu">Главная</a>
+        <a href="#history_section" class="mobile_menu__link" @click="closeMenu"
           >История храма</a
         >
-        <a href="#" class="mobile_menu__link" @click="closeMenu"
+        <a href="#repair_section" class="mobile_menu__link" @click="closeMenu"
           >Капитальный ремонт</a
         >
         <a href="#" class="mobile_menu__link" @click="closeMenu"
