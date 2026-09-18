@@ -186,15 +186,4 @@ h2.head {
 h3.head {
   margin-bottom: 16px;
 }
-
-div.paragraph > p {
-  text-indent: 35px;
-  margin-bottom: 16px;
-  line-height: 160%;
-
-  @media (max-width: 500px) {
-    font-size: 14px;
-    margin-bottom: 12px;
-  }
-}
 </style>

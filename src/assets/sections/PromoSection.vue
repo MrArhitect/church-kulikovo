@@ -184,7 +184,7 @@ onUnmounted(() => {
 #promo_section {
   color: $white_color;
   position: relative;
-  height: 100dvh;
+  height: 100svh;
   overflow: hidden;
 }
 
@@ -212,7 +212,7 @@ onUnmounted(() => {
     margin-bottom: 24px;
 
     @media (max-width: 760px) {
-      font-size: 4rem;
+      font-size: 3.2rem;
       text-align: center;
     }
   }
