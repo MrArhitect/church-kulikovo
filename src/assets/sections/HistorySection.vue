@@ -1,4 +1,6 @@
-<script setup lang="ts"></script>
+<script setup lang="ts">
+import DecoratorHistoryIcon from "../icons/DecoratorHistoryIcon.vue";
+</script>
 
 <template>
   <section id="history_section">
@@ -84,13 +86,19 @@
           </div>
         </div>
       </div>
+      <DecoratorHistoryIcon></DecoratorHistoryIcon>
     </div>
   </section>
 </template>
 
 <style scoped lang="scss">
 #history_section {
+  position: relative;
   padding: 96px 0px 188px;
+
+  @media (max-width: 760px) {
+    padding: 64px 0px 96px;
+  }
 
   .first_line,
   .second_line {
@@ -112,8 +120,21 @@
       margin-top: 120px;
       flex-wrap: wrap;
 
+      @media (max-width: 760px) {
+        margin-top: 0px;
+      }
+
       .left {
         gap: 25px;
+
+        @media (max-width: 980px) {
+          padding: 0px 50px;
+        }
+
+        @media (max-width: 760px) {
+          gap: 10px;
+          padding: 0px 30px;
+        }
 
         .image {
           flex: 1 1 0;
@@ -138,6 +159,10 @@
 
 h2.head {
   margin-bottom: 64px;
+
+  @media (max-width: 760px) {
+    text-align: center;
+  }
 }
 
 .qouke {
@@ -153,6 +178,7 @@ h2.head {
   .image {
     @media (max-width: 980px) {
       display: none;
+      margin-top: 40px;
     }
   }
 }
@@ -165,5 +191,10 @@ div.paragraph > p {
   text-indent: 35px;
   margin-bottom: 16px;
   line-height: 160%;
+
+  @media (max-width: 500px) {
+    font-size: 14px;
+    margin-bottom: 12px;
+  }
 }
 </style>
