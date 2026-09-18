@@ -12,3 +12,8 @@ $background_color: #f5edd5;
 
 // Затемнение изображений
 $mask: rgba(0, 0, 0, 0.35);
+
+// Тени
+$shadow_img:
+  0 4px 6px -1px rgba(0, 0, 0, 0.1),
+  0 2px 4px -2px rgba(0, 0, 0, 0.1);
