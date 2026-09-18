@@ -24,6 +24,11 @@ a {
   align-items: center;
   gap: 5px;
 
+  @media (max-width: 760px) {
+    justify-content: center;
+    font-size: 1.6rem;
+  }
+
   &.light {
     color: $white_color;
   }

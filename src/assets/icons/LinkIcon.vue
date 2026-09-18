@@ -1,18 +1,20 @@
 <script setup lang="ts">
 interface Props {
+  size?: number;
   type?: "light" | "default";
 }
 
 const props = withDefaults(defineProps<Props>(), {
+  size: 10,
   type: "default",
 });
 </script>
 
 <template>
-  <div class="scg_container">
+  <div class="svg_container">
     <svg
-      width="10"
-      height="10"
+      :width="props.size"
+      :height="props.size"
       viewBox="0 0 10 10"
       fill="none"
       xmlns="http://www.w3.org/2000/svg"

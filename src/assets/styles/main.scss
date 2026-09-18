@@ -51,15 +51,31 @@ p {
     max-width: 740px;
   }
 
-  @media (max-width: 740px) {
+  @media (max-width: 760px) {
     max-width: 500px;
   }
 
   @media (max-width: 500px) {
-    max-width: 300px;
+    max-width: auto;
   }
 }
 
 .flex {
   display: flex;
+}
+
+.mobile_show {
+  display: none;
+
+  @media (max-width: 760px) {
+    display: flex;
+  }
+}
+
+.mobile_down {
+  display: flex;
+
+  @media (max-width: 760px) {
+    display: none;
+  }
 }

@@ -1,9 +1,11 @@
 <script setup lang="ts">
-import { ref, onMounted, onUnmounted } from "vue";
+import { ref, onMounted, onUnmounted, watch } from "vue";
 import DecoratorPromoIcon from "../icons/DecoratorPromoIcon.vue";
 import ButtonUI from "../ui-kit/ButtonUI.vue";
 import LinkUI from "../ui-kit/LinkUI.vue";
+import BurgerIcon from "../icons/BurgerIcon.vue";
 
+// -- Функционал эффекта парралакса на фоне --
 const bgRef = ref<HTMLElement | null>(null);
 
 // Максимальный сдвиг экрана (px)
@@ -41,6 +43,15 @@ const tick = () => {
   rafId = requestAnimationFrame(tick);
 };
 
+// -- Функционал бургер-меню --
+const isMenuOpen = ref(false);
+const toggleMenu = () => (isMenuOpen.value = !isMenuOpen.value);
+const closeMenu = () => (isMenuOpen.value = false);
+
+watch(isMenuOpen, (open) => {
+  document.body.style.overflow = open ? "hidden" : "";
+});
+
 onMounted(() => {
   window.addEventListener("mousemove", onMouseMove, { passive: true });
   document.addEventListener("mouseleave", onMouseLeave);
@@ -63,12 +74,24 @@ onUnmounted(() => {
           <header id="header" class="flex">
             <div class="top flex">
               <div class="left">
-                <a href="/"></a>
-                <img
-                  class="logo"
-                  src="/src/assets/images/logo_white_full.svg"
-                  alt="логотип, приход вознесенского храма село куликово"
-                />
+                <a href="/">
+                  <img
+                    class="logo"
+                    src="/src/assets/images/logo_white_full.svg"
+                    alt="логотип, приход вознесенского храма село куликово"
+                  />
+                </a>
+              </div>
+              <div class="right">
+                <button
+                  class="burger_menu_btn flex mobile_show"
+                  :class="{ 'is-open': isMenuOpen }"
+                  @click="toggleMenu"
+                  aria-label="Открыть меню"
+                  :aria-expanded="isMenuOpen"
+                >
+                  <BurgerIcon :size="36"></BurgerIcon>
+                </button>
               </div>
             </div>
             <div class="bottom flex">
@@ -109,9 +132,14 @@ onUnmounted(() => {
             <div class="buttons flex">
               <div class="target_btn flex">
                 <ButtonUI :type="'target'">Пожертвовавать сумму</ButtonUI>
-                <LinkUI :href="'#'" :type="'light'">Публичная оферта</LinkUI>
+                <LinkUI class="mobile_down" :href="'#'" :type="'light'"
+                  >Публичная оферта</LinkUI
+                >
               </div>
               <ButtonUI>Узнать подробнее</ButtonUI>
+              <LinkUI class="mobile_show" :href="'#'" :type="'light'"
+                >Публичная оферта</LinkUI
+              >
             </div>
           </div>
           <!-- Заглушка -->
@@ -120,6 +148,35 @@ onUnmounted(() => {
         <DecoratorPromoIcon></DecoratorPromoIcon>
       </div>
     </div>
+    <div
+      class="mobile_menu"
+      :class="{ 'is-open': isMenuOpen }"
+      role="dialog"
+      aria-modal="true"
+    >
+      <nav class="mobile_menu__nav">
+        <a href="#" class="mobile_menu__link" @click="closeMenu">Главная</a>
+        <a href="#" class="mobile_menu__link" @click="closeMenu"
+          >История храма</a
+        >
+        <a href="#" class="mobile_menu__link" @click="closeMenu"
+          >Капитальный ремонт</a
+        >
+        <a href="#" class="mobile_menu__link" @click="closeMenu"
+          >Пожертвование</a
+        >
+        <a href="#" class="mobile_menu__link" @click="closeMenu"
+          >Правовая информация</a
+        >
+      </nav>
+    </div>
+
+    <!-- Оверлей (затемнение фона) -->
+    <div
+      class="mobile_menu__overlay"
+      :class="{ 'is-open': isMenuOpen }"
+      @click="closeMenu"
+    ></div>
   </section>
 </template>
 
@@ -142,32 +199,60 @@ onUnmounted(() => {
     color: $accent_color;
     text-transform: uppercase;
     margin-bottom: 16px;
+
+    @media (max-width: 760px) {
+      font-size: 1.4rem;
+      text-align: center;
+    }
   }
 
   h1.head {
     font-family: "Rubik";
     font-weight: 800;
     margin-bottom: 24px;
+
+    @media (max-width: 760px) {
+      font-size: 4rem;
+      text-align: center;
+    }
   }
 
   p.description {
     max-width: 680px;
     opacity: 0.85;
     margin-bottom: 16px;
+
+    @media (max-width: 760px) {
+      font-size: 1.4rem;
+      text-align: center;
+    }
   }
 
   p.slogan {
     font-weight: 700;
     margin-bottom: 36px;
+
+    @media (max-width: 760px) {
+      font-weight: 500;
+      text-align: center;
+    }
   }
 
   .buttons {
     gap: 12px;
 
+    @media (max-width: 760px) {
+      flex-direction: column;
+    }
+
     .target_btn {
       flex-direction: column;
       gap: 12px;
       align-items: center;
+
+      @media (max-width: 760px) {
+        align-items: normal;
+      }
     }
   }
 }
@@ -176,8 +261,23 @@ onUnmounted(() => {
   flex-direction: column;
   padding-top: 32px;
 
+  @media (max-width: 760px) {
+    .top {
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .logo {
+      height: 48px;
+    }
+  }
+
   .nav {
     margin-top: 32px;
+
+    @media (max-width: 760px) {
+      display: none;
+    }
 
     &__inner {
       gap: 25px;
@@ -193,6 +293,65 @@ onUnmounted(() => {
 
 .logo {
   height: 64px;
+}
+
+.burger_menu_btn {
+  transition: transform 0.3s ease-out;
+
+  &:hover {
+    transform: scale(1.05);
+  }
+}
+
+.mobile_menu {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 100;
+  background-color: $brown_color;
+  padding: 32px 24px 12px;
+  transform: translateY(-100%);
+  transition: transform 0.45s cubic-bezier(0.25, 1, 0.35, 1);
+  will-change: transform;
+
+  &.is-open {
+    transform: translateY(0);
+  }
+
+  &__nav {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+  }
+
+  &__link {
+    color: $white_color;
+    font-size: 1.6rem;
+    padding: 24px 0;
+    border-bottom: 1px solid rgba($white_color, 0.15);
+
+    &:hover {
+      color: $accent_color;
+    }
+  }
+
+  &__overlay {
+    position: fixed;
+    inset: 0;
+    background: $mask;
+    opacity: 0;
+    visibility: hidden;
+    transition:
+      opacity 0.3s ease-out,
+      visibility 0.3s ease-out;
+    z-index: 99;
+
+    &.is-open {
+      opacity: 1;
+      visibility: visible;
+    }
+  }
 }
 
 .bg {
