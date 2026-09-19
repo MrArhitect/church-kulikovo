@@ -75,8 +75,13 @@ p {
 }
 
 h2.head {
-  font-size: 48px;
+  font-size: 4.8rem;
   font-weight: 700;
+
+  @media (max-width: 500px) {
+    font-size: 3.2rem;
+    text-align: center;
+  }
 }
 
 h3.head {
