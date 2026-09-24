@@ -60,7 +60,7 @@ import LinkUI from "../ui-kit/LinkUI.vue";
             </p>
             <hr class="qr__line" />
             <ButtonUI :type="'target'" width="max">Пожертвовать сумму</ButtonUI>
-            <LinkUI :href="'#'">Реквизиты счёта</LinkUI>
+            <LinkUI :href="'/doc'">Реквизиты счёта</LinkUI>
           </div>
         </div>
       </div>

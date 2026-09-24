@@ -112,12 +112,12 @@ onUnmounted(() => {
                     <a href="#repair_section" class="nav__link">
                       <li class="nav__item">Капитальный ремонт</li>
                     </a>
-                    <a href="#" class="nav__link">
+                    <a href="#donate_section" class="nav__link">
                       <li class="nav__item">Пожертвование</li>
                     </a>
-                    <button href="#" class="btn_link nav__link">
-                      <li class="nav__item">Правовая информация</li>
-                    </button>
+                    <a href="/doc" class="nav__link">
+                      <li class="nav__item">Документы</li>
+                    </a>
                   </ul>
                 </nav>
               </div>
@@ -137,14 +137,14 @@ onUnmounted(() => {
             <div class="buttons flex">
               <div class="target_btn flex">
                 <ButtonUI :type="'target'">Пожертвовавать сумму</ButtonUI>
-                <LinkUI class="mobile_down" :href="'#'" :type="'light'"
+                <LinkUI class="mobile_down" :href="'/doc'" :type="'light'"
                   >Публичная оферта</LinkUI
                 >
               </div>
               <ButtonUI @click="scrollTo('history_section')"
                 >Узнать подробнее</ButtonUI
               >
-              <LinkUI class="mobile_show" :href="'#'" :type="'light'"
+              <LinkUI class="mobile_show" :href="'/doc'" :type="'light'"
                 >Публичная оферта</LinkUI
               >
             </div>
@@ -169,11 +169,11 @@ onUnmounted(() => {
         <a href="#repair_section" class="mobile_menu__link" @click="closeMenu"
           >Капитальный ремонт</a
         >
-        <a href="#" class="mobile_menu__link" @click="closeMenu"
+        <a href="#donate_section" class="mobile_menu__link" @click="closeMenu"
           >Пожертвование</a
         >
-        <a href="#" class="mobile_menu__link" @click="closeMenu"
-          >Правовая информация</a
+        <a href="/doc" class="mobile_menu__link" @click="closeMenu"
+          >Документы</a
         >
       </nav>
     </div>
