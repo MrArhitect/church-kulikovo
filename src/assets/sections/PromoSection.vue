@@ -371,7 +371,7 @@ onUnmounted(() => {
   z-index: 0;
   background:
     linear-gradient($mask, $mask),
-    url("/src/assets/images/promo_image.jpg") center / cover no-repeat;
+    url("/src/assets/images/promo_image.webp") center / cover no-repeat;
   will-change: transform;
 }
 </style>

@@ -35,12 +35,12 @@ import DecoratorPromoIcon from "../icons/DecoratorPromoIcon.vue";
             <div class="right flex">
               <img
                 class="image"
-                src="/src/assets/images/repair_group_1.jpg"
+                src="/src/assets/images/repair_group_1.webp"
                 alt="фото храма, разрушения"
               />
               <img
                 class="image"
-                src="/src/assets/images/repair_group_2.jpg"
+                src="/src/assets/images/repair_group_2.webp"
                 alt="фото храма, разрушения"
               />
             </div>
@@ -51,12 +51,12 @@ import DecoratorPromoIcon from "../icons/DecoratorPromoIcon.vue";
             <div class="left flex">
               <img
                 class="image"
-                src="/src/assets/images/repair_group_3.jpg"
+                src="/src/assets/images/repair_group_3.webp"
                 alt="фото храма, разрушения"
               />
               <img
                 class="image"
-                src="/src/assets/images/repair_group_4.jpg"
+                src="/src/assets/images/repair_group_4.webp"
                 alt="фото храма, ремонт кровли"
               />
             </div>

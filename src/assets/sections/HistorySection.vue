@@ -38,7 +38,7 @@ import DecoratorHistoryIcon from "../icons/DecoratorHistoryIcon.vue";
             <div class="right">
               <img
                 class="image"
-                src="/src/assets/images/history_image.png"
+                src="/src/assets/images/history_image.webp"
                 alt="фото храма, старый документ"
               />
             </div>
@@ -47,7 +47,7 @@ import DecoratorHistoryIcon from "../icons/DecoratorHistoryIcon.vue";
         <div class="history_progress">
           <img
             class="image"
-            src="/src/assets/images/history_progress.png"
+            src="/src/assets/images/history_progress.webp"
             alt="график развития храма"
           />
         </div>
@@ -56,12 +56,12 @@ import DecoratorHistoryIcon from "../icons/DecoratorHistoryIcon.vue";
             <div class="left flex">
               <img
                 class="image"
-                src="/src/assets/images/history_group_1.jpg"
+                src="/src/assets/images/history_group_1.webp"
                 alt="фото храма, старый документ"
               />
               <img
                 class="image"
-                src="/src/assets/images/history_group_2.jpg"
+                src="/src/assets/images/history_group_2.webp"
                 alt="фото храма, старый документ"
               />
             </div>
