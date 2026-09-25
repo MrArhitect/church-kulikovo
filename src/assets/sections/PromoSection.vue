@@ -137,7 +137,11 @@ onUnmounted(() => {
             <div class="buttons flex">
               <div class="target_btn flex">
                 <ButtonUI :type="'target'">Пожертвовавать сумму</ButtonUI>
-                <LinkUI class="mobile_down" :href="'/doc'" :type="'light'"
+                <LinkUI
+                  class="mobile_down"
+                  :href="'/ПУБЛИЧНАЯ ОФЕРТА О ПОЖЕРТВОВАНИИ.pdf'"
+                  download
+                  :type="'light'"
                   >Публичная оферта</LinkUI
                 >
               </div>

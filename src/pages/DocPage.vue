@@ -10,7 +10,6 @@ const inn = import.meta.env.VITE_INN;
 const kpp = import.meta.env.VITE_KPP;
 const urAdress = import.meta.env.VITE_UR_ADRESS;
 const mailAdress = import.meta.env.VITE_MAIL_ADRESS;
-const phone = import.meta.env.VITE_PHONE;
 const email = import.meta.env.VITE_EMAIL;
 const numberB = import.meta.env.VITE_NUMBERB;
 const nameB = import.meta.env.VITE_NAMEB;
@@ -68,7 +67,6 @@ const bik = import.meta.env.VITE_BIK;
                 <div class="block">
                   <h5 class="head">Контактные данные</h5>
                   <p class="t-14">{{ email }}</p>
-                  <p class="t-14">{{ phone }}</p>
                 </div>
               </div>
             </div>
@@ -114,7 +112,9 @@ const bik = import.meta.env.VITE_BIK;
                 с. Куликово» и определяет условия пожертвования на
                 восстановление храма.
               </p>
-              <LinkUI :href="'#'">Скачать документ (PDF)</LinkUI>
+              <LinkUI :href="'/ПУБЛИЧНАЯ ОФЕРТА О ПОЖЕРТВОВАНИИ.pdf'" download
+                >Скачать документ (PDF)</LinkUI
+              >
             </div>
           </div>
           <div class="politika card">
@@ -124,7 +124,9 @@ const bik = import.meta.env.VITE_BIK;
                 Политика в отношении обработки персональных данных, собираемых
                 при использовании сайта и в процессе принятия пожертвований.
               </p>
-              <LinkUI :href="'#'">Скачать документ (PDF)</LinkUI>
+              <LinkUI :href="'/ПОЛИТИКА КОНФИДЕНЦИАЛЬНОСТИ.pdf'" download
+                >Скачать документ (PDF)</LinkUI
+              >
             </div>
           </div>
           <div class="undo flex">
