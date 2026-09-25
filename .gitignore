@@ -6,5 +6,7 @@ dist
 *.local
 *.pdf
 
+qrcode.jpeg
+
 .vscode/*
 !.vscode/extensions.json

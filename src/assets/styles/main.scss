@@ -19,6 +19,7 @@ html {
 }
 
 body {
+  font-display: swap;
   background-color: $background_color;
 }
 
@@ -60,6 +61,11 @@ p {
   @media (max-width: 500px) {
     max-width: auto;
   }
+}
+
+.block {
+  width: 100%;
+  display: block;
 }
 
 .flex {

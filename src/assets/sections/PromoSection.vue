@@ -4,6 +4,7 @@ import DecoratorPromoIcon from "../icons/DecoratorPromoIcon.vue";
 import ButtonUI from "../ui-kit/ButtonUI.vue";
 import LinkUI from "../ui-kit/LinkUI.vue";
 import BurgerIcon from "../icons/BurgerIcon.vue";
+const bankLink = import.meta.env.VITE_BANK_LINK;
 
 // -- Функционал плавного перехода к блоку через JS- --
 const scrollTo = (id: string) => {
@@ -136,7 +137,11 @@ onUnmounted(() => {
             <p class="slogan">Подарите храму новое будущее!</p>
             <div class="buttons flex">
               <div class="target_btn flex">
-                <ButtonUI :type="'target'">Пожертвовавать сумму</ButtonUI>
+                <a class="block" :href="bankLink">
+                  <ButtonUI :type="'target'" width="max"
+                    >Пожертвовавать сумму</ButtonUI
+                  >
+                </a>
                 <LinkUI
                   class="mobile_down"
                   :href="'/ПУБЛИЧНАЯ ОФЕРТА О ПОЖЕРТВОВАНИИ.pdf'"

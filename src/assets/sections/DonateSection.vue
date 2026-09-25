@@ -4,6 +4,7 @@ import LifeIcon from "../icons/LifeIcon.vue";
 import PeopleIcon from "../icons/PeopleIcon.vue";
 import ButtonUI from "../ui-kit/ButtonUI.vue";
 import LinkUI from "../ui-kit/LinkUI.vue";
+const bankLink = import.meta.env.VITE_BANK_LINK;
 </script>
 
 <template>
@@ -53,14 +54,16 @@ import LinkUI from "../ui-kit/LinkUI.vue";
           <div class="qr">
             <div class="qr__code">
               <!-- Место для QR-кода -->
-              <span class="qr__placeholder">QR</span>
             </div>
             <p class="qr__hint t-16">
               Отсканируйте QR-код для перехода на страницу оплаты
             </p>
             <hr class="qr__line" />
-            <ButtonUI :type="'target'" width="max">Пожертвовать сумму</ButtonUI>
-            <LinkUI :href="'/doc'">Реквизиты счёта</LinkUI>
+            <a class="block" :href="bankLink">
+              <ButtonUI :type="'target'" width="max"
+                >Пожертвовать сумму</ButtonUI
+              >
+            </a>
             <LinkUI
               :href="'/public/ПУБЛИЧНАЯ ОФЕРТА О ПОЖЕРТВОВАНИИ.pdf'"
               download
@@ -141,6 +144,7 @@ h2.head {
     border-radius: 16px;
     display: flex;
     justify-content: center;
+    background: url(/public/qrcode.jpeg) no-repeat center;
     align-items: center;
     box-shadow: $shadow_img;
 
