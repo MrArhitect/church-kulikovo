@@ -53,7 +53,7 @@ const bankLink = import.meta.env.VITE_BANK_LINK;
         <div class="right">
           <div class="qr">
             <div class="qr__code">
-              <!-- Место для QR-кода -->
+              <img src="/qrcode.jpeg" :alt="bankLink" />
             </div>
             <p class="qr__hint t-16">
               Отсканируйте QR-код для перехода на страницу оплаты
@@ -144,9 +144,12 @@ h2.head {
     border-radius: 16px;
     display: flex;
     justify-content: center;
-    background: url(/public/qrcode.jpeg) no-repeat center;
     align-items: center;
     box-shadow: $shadow_img;
+
+    img {
+      border-radius: 16px;
+    }
 
     img,
     svg {
