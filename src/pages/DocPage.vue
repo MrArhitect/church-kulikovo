@@ -15,6 +15,7 @@ const numberB = import.meta.env.VITE_NUMBERB;
 const nameB = import.meta.env.VITE_NAMEB;
 const koresB = import.meta.env.VITE_KORESB;
 const bik = import.meta.env.VITE_BIK;
+const ogrn = import.meta.env.VITE_OGRN;
 </script>
 
 <template>
@@ -47,6 +48,10 @@ const bik = import.meta.env.VITE_BIK;
                 <div class="block">
                   <h5 class="head">ИНН</h5>
                   <p class="t-14">{{ inn }}</p>
+                </div>
+                <div class="block">
+                  <h5 class="head">ОГРН</h5>
+                  <p class="t-14">{{ ogrn }}</p>
                 </div>
                 <div class="block">
                   <h5 class="head">КПП</h5>
